@@ -10,6 +10,8 @@
 
 @interface BLMainViewController ()
 
+@property (strong, nonatomic) UIPopoverController *settingsPopoverController;
+
 @end
 
 @implementation BLMainViewController
@@ -26,43 +28,38 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Flipside View Controller
+#pragma mark - Settings View Controller
 
-- (void)flipsideViewControllerDidFinish:(BLFlipsideViewController *)controller
+/*- (void)flipsideViewControllerDidFinish:(BLFlipsideViewController *)controller
 {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         [self dismissViewControllerAnimated:YES completion:nil];
     } else {
         [self.flipsidePopoverController dismissPopoverAnimated:YES];
     }
+}*/
+
+- (IBAction) settingsDone:(UIStoryboardSegue *)unwindSegue
+{
+    
 }
 
 - (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
 {
-    self.flipsidePopoverController = nil;
+    self.settingsPopoverController = nil;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([[segue identifier] isEqualToString:@"showAlternate"]) {
-        [[segue destinationViewController] setDelegate:self];
+    if ([[segue identifier] isEqualToString:@"showSettings"]) {
         
         if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
             UIPopoverController *popoverController = [(UIStoryboardPopoverSegue *)segue popoverController];
-            self.flipsidePopoverController = popoverController;
+            self.settingsPopoverController = popoverController;
             popoverController.delegate = self;
         }
     }
 }
 
-- (IBAction)togglePopover:(id)sender
-{
-    if (self.flipsidePopoverController) {
-        [self.flipsidePopoverController dismissPopoverAnimated:YES];
-        self.flipsidePopoverController = nil;
-    } else {
-        [self performSegueWithIdentifier:@"showAlternate" sender:sender];
-    }
-}
 
 @end

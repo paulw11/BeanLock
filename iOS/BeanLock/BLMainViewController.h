@@ -6,10 +6,8 @@
 //  Copyright (c) 2014 Paul Wilkinson. All rights reserved.
 //
 
-#import "BLFlipsideViewController.h"
 
-@interface BLMainViewController : UIViewController <BLFlipsideViewControllerDelegate, UIPopoverControllerDelegate>
+@interface BLMainViewController : UIViewController <UIPopoverControllerDelegate>
 
-@property (strong, nonatomic) UIPopoverController *flipsidePopoverController;
 
 @end
