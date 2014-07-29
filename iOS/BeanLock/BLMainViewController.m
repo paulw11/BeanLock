@@ -90,7 +90,12 @@
 
 -(void) connect {
     NSUUID *beanID=[[NSUUID alloc] initWithUUIDString:self.targetBean];
+    
     self.messageLabel.text=@"Connecting...";
+    self.temperatureLabel.text=@"-";
+    self.batteryLabel.text=@"-";
+    self.batteryProgressView.progress=0;
+    
     if (![self.myBeanStuff connectToBeanWithIdentifier:beanID] ) {  // Connect directly if we can
         [self.myBeanStuff startScanningForBeans];                   // Otherwise scan for the bean
     }
@@ -156,11 +161,11 @@
     [self.myBeanStuff stopScanningForBeans];
     [bean readTemperature];
     if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateBackground) {
-    UILocalNotification* localNotification = [[UILocalNotification alloc] init];
-    localNotification.fireDate = [NSDate new];
-    localNotification.alertBody = @"I see a lock";
-    localNotification.timeZone = [NSTimeZone defaultTimeZone];
-    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+        UILocalNotification* localNotification = [[UILocalNotification alloc] init];
+        localNotification.fireDate = [NSDate new];
+        localNotification.alertBody = @"I see a lock";
+        localNotification.timeZone = [NSTimeZone defaultTimeZone];        
+        [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
     }
 }
 
