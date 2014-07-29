@@ -53,7 +53,6 @@
     
 	self.myBeanStuff=[BLBeanStuff sharedBeanStuff];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(unlockNotificationReceived) name:kBLUnlockNotification object:nil];
-  
 }
 
 -(void) viewWillAppear:(BOOL)animated {
@@ -89,20 +88,30 @@
     [self.connectedBean readTemperature];
 }
 
+-(void) connect {
+    NSUUID *beanID=[[NSUUID alloc] initWithUUIDString:self.targetBean];
+    self.messageLabel.text=@"Connecting...";
+    if (![self.myBeanStuff connectToBeanWithIdentifier:beanID] ) {  // Connect directly if we can
+        [self.myBeanStuff startScanningForBeans];                   // Otherwise scan for the bean
+    }
+    
+}
+
 -(void) processSettings {
     
     NSString *newTargetBean=[[NSUserDefaults standardUserDefaults] objectForKey:kBLTargetBeanPref];
     
+    if (newTargetBean == nil) {
+        self.messageLabel.text=@"Please select a lock in settings";
+    }
+    
     if (![newTargetBean isEqualToString:self.targetBean]) {
         self.targetBean=newTargetBean;
-        NSUUID *beanID=[[NSUUID alloc] initWithUUIDString:newTargetBean];
         if (self.connectedBean != nil) {
             [self.myBeanStuff disconnectFromBean:self.connectedBean];
         }
         else {
-            if (![self.myBeanStuff connectToBeanWithIdentifier:beanID] ) {
-                [self.myBeanStuff startScanningForBeans];
-            }
+            [self connect];
         }
     }
 }
@@ -140,6 +149,7 @@
 #pragma mark - BLBeanStuffDelegate
 
 -(void) didConnectToBean:(PTDBean *)bean {
+    self.messageLabel.text=@"Connected";
     bean.delegate=self;
     self.connectedBean=bean;
     self.openButton.enabled=YES;
@@ -155,16 +165,17 @@
 }
 
 -(void) didDisconnectFromBean:(PTDBean *)bean {
+    self.messageLabel.text=@"Looking for bean";
     self.connectedBean=nil;
     self.openButton.enabled=NO;
     if (self.targetBean != nil) {
-        [self.myBeanStuff connectToBeanWithIdentifier:[[NSUUID alloc] initWithUUIDString:self.targetBean]];
+        [self connect];
     }
 }
 
 -(void) didUpdateDiscoveredBeans:(NSArray *)discoveredBeans withBean:(PTDBean *)newBean {
     if ([self.targetBean isEqualToString:newBean.identifier.UUIDString]) {
-        [self.myBeanStuff connectToBean:newBean];
+        [self connect];
     }
 }
 
