@@ -1,10 +1,30 @@
-//
+/*
 //  BLBeanStuff.m
 //  BeanLock
 //
 //  Created by Paul Wilkinson on 28/07/2014.
-//  Copyright (c) 2014 Paul Wilkinson. All rights reserved.
-//
+ The MIT License (MIT)
+ 
+ Copyright (c) 2014 Paul Wilkinson
+ 
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+ 
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
+ 
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ THE SOFTWARE.
+ */
 
 #import "BLBeanStuff.h"
 
@@ -13,9 +33,7 @@
 @property (strong,nonatomic) PTDBeanManager *beanManager;
 @property (strong,nonatomic) NSMutableDictionary *discoveredBeansDict;
 @property (strong,nonatomic) NSMutableString *receivedData;
-@property BOOL connectedToTarget;
-@property (strong,nonatomic) PTDBean *theConnectedBean;
-@property (strong,nonatomic) NSString *theTargetBean;
+@property (strong,nonatomic) NSMutableDictionary *theConnectedBeans;
 
 @end
 
@@ -39,6 +57,7 @@
         self.beanManager.delegate=self;
         self.discoveredBeansDict=[NSMutableDictionary new];
         self.receivedData=[NSMutableString new];
+        self.theConnectedBeans=[NSMutableDictionary new];
     }
     return self;
 }
@@ -51,38 +70,59 @@
     return [self.discoveredBeansDict allValues];
 }
 
--(BOOL) isConnectedToTarget {
-    return self.connectedToTarget;
+-(NSArray *)connectedBeans {
+    return [self.theConnectedBeans allValues];
 }
 
 
--(PTDBean *)getConnectedBean {
-    return self.theConnectedBean;
+-(BOOL)isConnectedToBean:(PTDBean *)bean {
+    return ([self.theConnectedBeans allKeysForObject:bean].count !=0);
 }
 
--(NSString *)getTargetBean {
-    return self.theTargetBean;
+-(BOOL)isConnectedToBeanWithIdentifier:(NSUUID *)identifier {
+    return ([self.theConnectedBeans objectForKey:identifier] != nil);
 }
 
--(void )setTargetBean:(NSString *)value {
-    if (![value isEqualToString:self.theTargetBean]) {
-        self.theTargetBean=value;
-        if (self.theConnectedBean != nil) {
-            [self.beanManager disconnectBean:self.theConnectedBean error:nil];
-        }
-        for (PTDBean *bean in self.discoveredBeans) {
-            if ([bean.name isEqualToString:self.theTargetBean]) {
-                [self.beanManager connectToBean:bean error:nil];
-                break;
-            }
-        }
-        
+-(void) startScanningForBeans {
+    [self.discoveredBeansDict removeAllObjects];
+    [self.beanManager startScanningForBeans_error:nil];
+}
+
+
+-(void) stopScanningForBeans {
+    [self.beanManager stopScanningForBeans_error:nil];
+}
+
+// Attempt to connect to a bean by identifier.
+// Returns YES if bean is known and connection is being attempted
+// Returns NO if bean is unknown
+
+
+-(BOOL)connectToBeanWithIdentifier:(NSUUID *)identifier
+{
+    BOOL ret=NO;
+    PTDBean *bean=[self.discoveredBeansDict objectForKey:identifier];
+    if (bean != nil) {
+        [self connectToBean:bean];
+        ret=YES;
+    }
+   
+    return ret;
+}
+
+
+-(void) connectToBean:(PTDBean *)bean {
+    if (![self isConnectedToBean:bean]) {
+        [self.beanManager connectToBean:bean error:nil];
     }
 }
--(void) processInput:(NSString *)input
-{
-    NSLog(@"Process input=%@",input);
+
+-(void) disconnectFromBean:(PTDBean *)bean {
+    if ([self isConnectedToBean:bean]) {
+        [self.beanManager disconnectBean:bean error:nil];
+    }
 }
+
 
 #pragma mark - PTDBeanManagerDelegate methods
 
@@ -106,15 +146,11 @@
     else {
         NSLog(@"Discovered bean %@ (%@)",bean.name,bean.identifier);
         [self.discoveredBeansDict setObject:bean forKey:bean.identifier];
-        if (self.delegate != nil && [self.delegate respondsToSelector:@selector(didUpdateDiscoveredBeans:)]) {
-            [self.delegate didUpdateDiscoveredBeans:[self discoveredBeans]];
+        if (self.delegate != nil && [self.delegate respondsToSelector:@selector(didUpdateDiscoveredBeans:withBean:)]) {
+            [self.delegate didUpdateDiscoveredBeans:[self discoveredBeans] withBean:bean];
         }
-        if ([bean.name isEqualToString:self.targetBean])
-        {
-            [beanManager connectToBean:bean error:nil];
-        }
+        
     }
-    // [self.beanManager connectToBean:bean error:nil];
 }
 
 // bean connected
@@ -123,14 +159,12 @@
         NSLog(@"b %@", [error localizedDescription]);
         return;
     }
-    bean.delegate=self;
-    self.connectedToTarget=YES;
-    self.theConnectedBean=bean;
-    [self.beanManager stopScanningForBeans_error:nil];
+
+    [self.theConnectedBeans setObject:bean forKey:bean.identifier];
+    
     if (self.delegate != nil && [self.delegate respondsToSelector:@selector(didConnectToBean:)]) {
         [self.delegate didConnectToBean:bean];
     }
-    // do stuff with your bean
 }
 
 -(void)BeanManager:(PTDBeanManager *)beanManager didDisconnectBean:(PTDBean *)bean error:(NSError *)error
@@ -139,41 +173,11 @@
         NSLog(@"c %@", [error localizedDescription]);;
     }
     
-    self.theConnectedBean=nil;
-    self.connectedToTarget=NO;
+    [self.theConnectedBeans removeObjectForKey:bean.identifier];
     if (self.delegate != nil && [self.delegate respondsToSelector:@selector(didDisconnectFromBean:)]) {
         [self.delegate didDisconnectFromBean:bean];
     }
-    NSLog(@"connection lost - attempting to reacquire");
-    [self.beanManager stopScanningForBeans_error:nil];
-    [self.discoveredBeansDict removeAllObjects];
-    [self.beanManager startScanningForBeans_error:nil];
-    
 }
 
-#pragma mark - PTDBeanDelegate methods
 
-- (void)bean:(PTDBean *)bean serialDataReceived:(NSData *)data
-{
-    NSString *serialDataString=[[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
-    NSLog(@"Received serial data from Bean - %@",serialDataString);
-    
-    for (int i=0;i<serialDataString.length;i++) {
-        unichar c=[serialDataString characterAtIndex:i];
-        if (c=='\n')
-        {
-            [self processInput:self.receivedData];
-            self.receivedData=[NSMutableString new];
-        }
-        else
-        {
-            [self.receivedData appendString:[NSString stringWithFormat:@"%c",c]];
-        }
-    }
-}
-
-- (void)bean:(PTDBean *)bean error:(NSError *)error
-{
-    NSLog(@"d %@", [error localizedDescription]);
-}
 @end

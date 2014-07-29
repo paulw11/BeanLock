@@ -13,7 +13,18 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    UILocalNotification *localNotif =
+    [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
+    
+    [self postUnlockNotification];
+    
     return YES;
+}
+
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
+{
+    [self postUnlockNotification];
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -41,6 +52,10 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+-(void) postUnlockNotification {
+    [[NSNotificationCenter defaultCenter] postNotificationName:kBLUnlockNotification object:self];
 }
 
 @end

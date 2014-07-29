@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+#define kBLTargetBeanPref @"targetBean"
+#define kBLPasswordPref @"password"
+#define kBLAutoUnlockPref @"autoUnlock"
+#define kBLUnlockNotification @"kBLUnlockNotification"
+
 @interface BLAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
