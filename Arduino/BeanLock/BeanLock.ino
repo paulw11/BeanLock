@@ -1,14 +1,34 @@
 /*
-  Serial Loopback Test
+  BeanLock
  
-  Reads all bytes on the serial input and sends them right
-  back to the sender.
+  Example of a relay controlled lock using the LightBlue Bean
 
-  This example code is in the public domain.
+The MIT License (MIT)
+
+Copyright (c) 2014 Paul Wilkinson
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
  */
 
 int ledTimeout=0;
-int LEDTIME=10;
+int LEDTIME=10;    // LED time is 5 seconds (sleep for 500ms every loop)
 int state=0;
 String collectedPassword;
 String thePassword="OpenSesame";
@@ -40,11 +60,15 @@ void loop() {
   Bean.sleep(500);
   if (ledTimeout >0) {
     ledTimeout--;
-    if (ledTimeout == 0) {
+    if (ledTimeout == 0) {      // Turn off the LED after required time
       Bean.setLed(0,0,0);
     }
   }
 }
+
+// State machine to process incoming data - Format is <STX>password<ETX>
+// STX=0x02 (^B)
+// ETX=0x03 (^C)
 
 void processBytes(char buffer[], size_t length) {
   for (int i=0;i<length;i++) {
@@ -76,8 +100,9 @@ void processBytes(char buffer[], size_t length) {
       case 2:
            if (b==3) {
               if (collectedPassword == thePassword) {
-                 pulseLock(10); 
                  ok();  
+                 pulseLock(10); 
+                 closed();
                  state=0;    
               }
               else {
@@ -97,6 +122,8 @@ void processBytes(char buffer[], size_t length) {
   }   
 }
 
+// Send various status messages
+
 void error() {
   Serial.println("Error");
   Bean.setLed(0,0,255);
@@ -107,11 +134,18 @@ void ok() {
   Serial.println("OK");
 }
 
+
+void closed() {
+  Serial.println("Closed");
+}
+
 void denied() {
   Serial.println("No");
   Bean.setLed(241,196,15);
   ledTimeout=LEDTIME;
 }
+
+// Pulse the lock open for a specified time
 
 void pulseLock(int time) {
  openLock();
@@ -120,16 +154,19 @@ void pulseLock(int time) {
 }
 
 
+// Open the lock
+// The relay board has an active-low input
+
 void openLock() {
-  digitalWrite(0,HIGH);
+  digitalWrite(0,LOW);
   Bean.setLed(0,255,0);
   ledTimeout=LEDTIME;
 }
 
 
-
+// Close the lock
 void closeLock() {
-  digitalWrite(0,LOW);
+  digitalWrite(0,HIGH);
   Bean.setLed(255,0,0);
   ledTimeout=LEDTIME;
 }
