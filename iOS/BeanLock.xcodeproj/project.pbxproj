@@ -25,6 +25,20 @@
 		BB45EBC11985E68F00D1A544 /* BeanLockTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BB45EBC01985E68F00D1A544 /* BeanLockTests.m */; };
 		BB45EBCC1985F89A00D1A544 /* BLSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB45EBCB1985F89A00D1A544 /* BLSettingsViewController.m */; };
 		BB45EBCF1985FFC500D1A544 /* BLBeanStuff.m in Sources */ = {isa = PBXBuildFile; fileRef = BB45EBCE1985FFC500D1A544 /* BLBeanStuff.m */; };
+		BB45EBDF1987C7F300D1A544 /* icon100.png in Resources */ = {isa = PBXBuildFile; fileRef = BB45EBD11987C7F300D1A544 /* icon100.png */; };
+		BB45EBE11987C7F300D1A544 /* icon1024.png in Resources */ = {isa = PBXBuildFile; fileRef = BB45EBD31987C7F300D1A544 /* icon1024.png */; };
+		BB45EBE21987C7F300D1A544 /* icon120.png in Resources */ = {isa = PBXBuildFile; fileRef = BB45EBD41987C7F300D1A544 /* icon120.png */; };
+		BB45EBE31987C7F300D1A544 /* icon144.png in Resources */ = {isa = PBXBuildFile; fileRef = BB45EBD51987C7F300D1A544 /* icon144.png */; };
+		BB45EBE41987C7F300D1A544 /* icon152.png in Resources */ = {isa = PBXBuildFile; fileRef = BB45EBD61987C7F300D1A544 /* icon152.png */; };
+		BB45EBE51987C7F300D1A544 /* icon29.png in Resources */ = {isa = PBXBuildFile; fileRef = BB45EBD71987C7F300D1A544 /* icon29.png */; };
+		BB45EBE61987C7F300D1A544 /* icon40.png in Resources */ = {isa = PBXBuildFile; fileRef = BB45EBD81987C7F300D1A544 /* icon40.png */; };
+		BB45EBE71987C7F300D1A544 /* icon50.png in Resources */ = {isa = PBXBuildFile; fileRef = BB45EBD91987C7F300D1A544 /* icon50.png */; };
+		BB45EBE81987C7F300D1A544 /* icon58.png in Resources */ = {isa = PBXBuildFile; fileRef = BB45EBDA1987C7F300D1A544 /* icon58.png */; };
+		BB45EBE91987C7F300D1A544 /* icon60.png in Resources */ = {isa = PBXBuildFile; fileRef = BB45EBDB1987C7F300D1A544 /* icon60.png */; };
+		BB45EBEA1987C7F300D1A544 /* icon72.png in Resources */ = {isa = PBXBuildFile; fileRef = BB45EBDC1987C7F300D1A544 /* icon72.png */; };
+		BB45EBEB1987C7F300D1A544 /* icon76.png in Resources */ = {isa = PBXBuildFile; fileRef = BB45EBDD1987C7F300D1A544 /* icon76.png */; };
+		BB45EBEC1987C7F300D1A544 /* icon80.png in Resources */ = {isa = PBXBuildFile; fileRef = BB45EBDE1987C7F300D1A544 /* icon80.png */; };
+		BB45EBEE1987CA1200D1A544 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB45EBED1987CA1200D1A544 /* CoreBluetooth.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +77,20 @@
 		BB45EBCB1985F89A00D1A544 /* BLSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLSettingsViewController.m; sourceTree = "<group>"; };
 		BB45EBCD1985FFC500D1A544 /* BLBeanStuff.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLBeanStuff.h; sourceTree = "<group>"; };
 		BB45EBCE1985FFC500D1A544 /* BLBeanStuff.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLBeanStuff.m; sourceTree = "<group>"; };
+		BB45EBD11987C7F300D1A544 /* icon100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon100.png; sourceTree = "<group>"; };
+		BB45EBD31987C7F300D1A544 /* icon1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon1024.png; sourceTree = "<group>"; };
+		BB45EBD41987C7F300D1A544 /* icon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon120.png; sourceTree = "<group>"; };
+		BB45EBD51987C7F300D1A544 /* icon144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon144.png; sourceTree = "<group>"; };
+		BB45EBD61987C7F300D1A544 /* icon152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon152.png; sourceTree = "<group>"; };
+		BB45EBD71987C7F300D1A544 /* icon29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon29.png; sourceTree = "<group>"; };
+		BB45EBD81987C7F300D1A544 /* icon40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon40.png; sourceTree = "<group>"; };
+		BB45EBD91987C7F300D1A544 /* icon50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon50.png; sourceTree = "<group>"; };
+		BB45EBDA1987C7F300D1A544 /* icon58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon58.png; sourceTree = "<group>"; };
+		BB45EBDB1987C7F300D1A544 /* icon60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon60.png; sourceTree = "<group>"; };
+		BB45EBDC1987C7F300D1A544 /* icon72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon72.png; sourceTree = "<group>"; };
+		BB45EBDD1987C7F300D1A544 /* icon76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon76.png; sourceTree = "<group>"; };
+		BB45EBDE1987C7F300D1A544 /* icon80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon80.png; sourceTree = "<group>"; };
+		BB45EBED1987CA1200D1A544 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		C32EBDDB49F440D0823928BA /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -71,6 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB45EBEE1987CA1200D1A544 /* CoreBluetooth.framework in Frameworks */,
 				BB45EB921985E68F00D1A544 /* CoreGraphics.framework in Frameworks */,
 				BB45EB941985E68F00D1A544 /* UIKit.framework in Frameworks */,
 				BB45EB901985E68F00D1A544 /* Foundation.framework in Frameworks */,
@@ -114,6 +143,7 @@
 		BB45EB8E1985E68F00D1A544 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BB45EBED1987CA1200D1A544 /* CoreBluetooth.framework */,
 				BB45EB8F1985E68F00D1A544 /* Foundation.framework */,
 				BB45EB911985E68F00D1A544 /* CoreGraphics.framework */,
 				BB45EB931985E68F00D1A544 /* UIKit.framework */,
@@ -126,6 +156,7 @@
 		BB45EB951985E68F00D1A544 /* BeanLock */ = {
 			isa = PBXGroup;
 			children = (
+				BB45EBD01987C7F300D1A544 /* imagery */,
 				BB45EB9E1985E68F00D1A544 /* BLAppDelegate.h */,
 				BB45EB9F1985E68F00D1A544 /* BLAppDelegate.m */,
 				BB45EBA11985E68F00D1A544 /* Main_iPhone.storyboard */,
@@ -169,6 +200,26 @@
 				BB45EBBD1985E68F00D1A544 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BB45EBD01987C7F300D1A544 /* imagery */ = {
+			isa = PBXGroup;
+			children = (
+				BB45EBD11987C7F300D1A544 /* icon100.png */,
+				BB45EBD31987C7F300D1A544 /* icon1024.png */,
+				BB45EBD41987C7F300D1A544 /* icon120.png */,
+				BB45EBD51987C7F300D1A544 /* icon144.png */,
+				BB45EBD61987C7F300D1A544 /* icon152.png */,
+				BB45EBD71987C7F300D1A544 /* icon29.png */,
+				BB45EBD81987C7F300D1A544 /* icon40.png */,
+				BB45EBD91987C7F300D1A544 /* icon50.png */,
+				BB45EBDA1987C7F300D1A544 /* icon58.png */,
+				BB45EBDB1987C7F300D1A544 /* icon60.png */,
+				BB45EBDC1987C7F300D1A544 /* icon72.png */,
+				BB45EBDD1987C7F300D1A544 /* icon76.png */,
+				BB45EBDE1987C7F300D1A544 /* icon80.png */,
+			);
+			path = imagery;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,10 +308,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB45EBDF1987C7F300D1A544 /* icon100.png in Resources */,
+				BB45EBE11987C7F300D1A544 /* icon1024.png in Resources */,
+				BB45EBE31987C7F300D1A544 /* icon144.png in Resources */,
+				BB45EBE41987C7F300D1A544 /* icon152.png in Resources */,
+				BB45EBE21987C7F300D1A544 /* icon120.png in Resources */,
 				BB45EBA61985E68F00D1A544 /* Main_iPad.storyboard in Resources */,
 				BB45EBAE1985E68F00D1A544 /* Images.xcassets in Resources */,
+				BB45EBE81987C7F300D1A544 /* icon58.png in Resources */,
 				BB45EBA31985E68F00D1A544 /* Main_iPhone.storyboard in Resources */,
+				BB45EBE91987C7F300D1A544 /* icon60.png in Resources */,
 				BB45EB9A1985E68F00D1A544 /* InfoPlist.strings in Resources */,
+				BB45EBE51987C7F300D1A544 /* icon29.png in Resources */,
+				BB45EBE61987C7F300D1A544 /* icon40.png in Resources */,
+				BB45EBE71987C7F300D1A544 /* icon50.png in Resources */,
+				BB45EBEC1987C7F300D1A544 /* icon80.png in Resources */,
+				BB45EBEB1987C7F300D1A544 /* icon76.png in Resources */,
+				BB45EBEA1987C7F300D1A544 /* icon72.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
