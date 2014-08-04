@@ -110,7 +110,11 @@ THE SOFTWARE.
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     PTDBean *bean=[self.beans objectAtIndex:indexPath.row];
     self.targetBean=bean.identifier.UUIDString;
-    [[NSUserDefaults standardUserDefaults] setObject:self.targetBean forKey:kBLTargetBeanPref];
+    NSString *targetBeanName=bean.name;
+    NSUserDefaults *userDefaults=[NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:self.targetBean forKey:kBLTargetBeanPref];
+    [userDefaults setObject:targetBeanName forKey:kBLTargetBeanNamePref];
+    
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     [tableView reloadData];
 }
