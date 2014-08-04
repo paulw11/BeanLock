@@ -35,6 +35,7 @@
 @property (strong, nonatomic) UIPopoverController *settingsPopoverController;
 @property (nonatomic,strong) BLBeanStuff *myBeanStuff;
 @property (nonatomic,strong) NSString *targetBean;
+@property (nonatomic,strong) NSString *targetBeanName;
 @property (nonatomic,strong) PTDBean *connectedBean;
 
 @property (nonatomic,weak) IBOutlet UIButton *openButton;
@@ -42,6 +43,7 @@
 @property (nonatomic,weak) IBOutlet UILabel *batteryLabel;
 @property (nonatomic,weak) IBOutlet UIProgressView *batteryProgressView;
 @property (nonatomic,weak) IBOutlet UILabel *messageLabel;
+@property (nonatomic,weak) IBOutlet UILabel *statusLabel;
 
 @end
 
@@ -91,7 +93,8 @@
 -(void) connect {
     NSUUID *beanID=[[NSUUID alloc] initWithUUIDString:self.targetBean];
     
-    self.messageLabel.text=@"Connecting...";
+    self.statusLabel.text=[NSString stringWithFormat:@"Connecting to %@",self.targetBeanName];
+    self.messageLabel.text=@"";
     self.temperatureLabel.text=@"-";
     self.batteryLabel.text=@"-";
     self.batteryProgressView.progress=0;
@@ -104,14 +107,18 @@
 
 -(void) processSettings {
     
-    NSString *newTargetBean=[[NSUserDefaults standardUserDefaults] objectForKey:kBLTargetBeanPref];
+    NSUserDefaults *userDefaults=[NSUserDefaults standardUserDefaults];
+    
+    NSString *newTargetBean=[userDefaults objectForKey:kBLTargetBeanPref];
     
     if (newTargetBean == nil) {
         self.messageLabel.text=@"Please select a lock in settings";
+        self.statusLabel.text=@"";
     }
     
     if (![newTargetBean isEqualToString:self.targetBean]) {
         self.targetBean=newTargetBean;
+        self.targetBeanName=[userDefaults objectForKey:kBLTargetBeanNamePref];
         if (self.connectedBean != nil) {
             [self.myBeanStuff disconnectFromBean:self.connectedBean];
         }
@@ -154,7 +161,14 @@
 #pragma mark - BLBeanStuffDelegate
 
 -(void) didConnectToBean:(PTDBean *)bean {
-    self.messageLabel.text=@"Connected";
+        // Bean may have been renamed
+    if (![self.targetBeanName isEqualToString:bean.name]) {
+        [[NSUserDefaults standardUserDefaults] setObject:bean.name forKey:kBLTargetBeanNamePref];
+        self.targetBeanName=bean.name;
+    }
+    
+    self.statusLabel.text=[NSString stringWithFormat:@"Connected to %@",self.targetBeanName];
+    
     bean.delegate=self;
     self.connectedBean=bean;
     self.openButton.enabled=YES;
@@ -170,7 +184,7 @@
 }
 
 -(void) didDisconnectFromBean:(PTDBean *)bean {
-    self.messageLabel.text=@"Looking for bean";
+    self.messageLabel.text=@"Disconnected";
     self.connectedBean=nil;
     self.openButton.enabled=NO;
     if (self.targetBean != nil) {
@@ -209,8 +223,17 @@
 }
 
 - (void)beanDidUpdateBatteryVoltage:(PTDBean *)bean error:(NSError *)error {
-    self.batteryLabel.text=[NSString stringWithFormat:@"%0.3fV",[bean.batteryVoltage floatValue]];
-    self.batteryProgressView.progress=[bean.batteryVoltage floatValue]/3.3;
+    float batteryVoltage = [bean.batteryVoltage floatValue];
+    self.batteryLabel.text=[NSString stringWithFormat:@"%0.4fV",batteryVoltage];
+    UIColor *batteryColor=[UIColor redColor];
+    if (batteryVoltage > 2.5) {
+        batteryColor=[UIColor greenColor];
+    }
+    else if (batteryVoltage >2) {
+        batteryColor=[UIColor orangeColor];
+    }
+    self.batteryProgressView.tintColor=batteryColor;
+    self.batteryProgressView.progress=[bean.batteryVoltage floatValue]/4.0;
 }
 
 @end
