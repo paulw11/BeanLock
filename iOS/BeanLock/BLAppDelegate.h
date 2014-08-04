@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #define kBLTargetBeanPref @"targetBean"
+#define kBLTargetBeanNamePref @"targetBeanName"
 #define kBLPasswordPref @"password"
 #define kBLAutoUnlockPref @"autoUnlock"
 #define kBLUnlockNotification @"kBLUnlockNotification"
