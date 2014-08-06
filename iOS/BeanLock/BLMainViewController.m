@@ -109,6 +109,8 @@
 
 -(void) processSettings {
     
+    self.myBeanStuff.delegate=self;  // Ensure that we are re-set as the BeanStuff delegate
+    
     NSUserDefaults *userDefaults=[NSUserDefaults standardUserDefaults];
     
     NSString *newTargetBean=[userDefaults objectForKey:kBLTargetBeanPref];
