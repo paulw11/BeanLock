@@ -77,6 +77,9 @@
     }
 }
 
+
+#pragma mark - User Actions
+
 -(IBAction)openPressed:(UIButton *)sender {
     if (self.connectedBean!=nil) {
         [self unlock];
@@ -90,20 +93,19 @@
     [self.connectedBean readTemperature];
 }
 
--(void) connect {
-    NSUUID *beanID=[[NSUUID alloc] initWithUUIDString:self.targetBean];
+
+
+
+#pragma mark - Settings View Controller
+
+
+- (IBAction) settingsDone:(UIStoryboardSegue *)unwindSegue
+{
     
-    self.statusLabel.text=[NSString stringWithFormat:@"Connecting to %@",self.targetBeanName];
-    self.messageLabel.text=@"";
-    self.temperatureLabel.text=@"-";
-    self.batteryLabel.text=@"-";
-    self.batteryProgressView.progress=0;
-    
-    if (![self.myBeanStuff connectToBeanWithIdentifier:beanID] ) {  // Connect directly if we can
-        [self.myBeanStuff startScanningForBeans];                   // Otherwise scan for the bean
-    }
+    [self processSettings];
     
 }
+
 
 -(void) processSettings {
     
@@ -128,21 +130,13 @@
     }
 }
 
-#pragma mark - Settings View Controller
-
-
-- (IBAction) settingsDone:(UIStoryboardSegue *)unwindSegue
-{
-    
-    [self processSettings];
-    
-}
-
 - (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
 {
     self.settingsPopoverController = nil;
     [self processSettings];
 }
+
+#pragma mark - Segue
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -156,7 +150,22 @@
     }
 }
 
+#pragma mark - Connection
 
+-(void) connect {
+    NSUUID *beanID=[[NSUUID alloc] initWithUUIDString:self.targetBean];
+    
+    self.statusLabel.text=[NSString stringWithFormat:@"Connecting to %@",self.targetBeanName];
+    self.messageLabel.text=@"";
+    self.temperatureLabel.text=@"-";
+    self.batteryLabel.text=@"-";
+    self.batteryProgressView.progress=0;
+    
+    if (![self.myBeanStuff connectToBeanWithIdentifier:beanID] ) {  // Connect directly if we can
+        [self.myBeanStuff startScanningForBeans];                   // Otherwise scan for the bean
+    }
+    
+}
 
 #pragma mark - BLBeanStuffDelegate
 
