@@ -130,7 +130,7 @@
 - (void)beanManagerDidUpdateState:(PTDBeanManager *)manager{
     if(self.beanManager.state == BeanManagerState_PoweredOn){
         // if we're on, scan for advertisting beans
-        NSLog(@"Starting to scan for bean");
+        NSLog(@"Starting to scan for Beans");
         [self.beanManager startScanningForBeans_error:nil];
     }
     else if (self.beanManager.state == BeanManagerState_PoweredOff) {
@@ -140,11 +140,11 @@
 
 - (void)BeanManager:(PTDBeanManager*)beanManager didDiscoverBean:(PTDBean*)bean error:(NSError*)error {
     if (error) {
-        NSLog(@"a %@", [error localizedDescription]);
+        NSLog(@"Error in didDiscoverBean: %@", [error localizedDescription]);
         return;
     }
     else {
-        NSLog(@"Discovered bean %@ (%@)",bean.name,bean.identifier);
+        NSLog(@"Discovered Bean %@ (%@)",bean.name,bean.identifier);
         [self.discoveredBeansDict setObject:bean forKey:bean.identifier];
         if (self.delegate != nil && [self.delegate respondsToSelector:@selector(didUpdateDiscoveredBeans:withBean:)]) {
             [self.delegate didUpdateDiscoveredBeans:[self discoveredBeans] withBean:bean];
@@ -156,7 +156,7 @@
 // bean connected
 - (void)BeanManager:(PTDBeanManager*)beanManager didConnectToBean:(PTDBean*)bean error:(NSError*)error{
     if (error) {
-        NSLog(@"b %@", [error localizedDescription]);
+        NSLog(@"Error in didConnectToBean: %@", [error localizedDescription]);
         return;
     }
 
@@ -170,7 +170,7 @@
 -(void)BeanManager:(PTDBeanManager *)beanManager didDisconnectBean:(PTDBean *)bean error:(NSError *)error
 {
     if (error) {
-        NSLog(@"c %@", [error localizedDescription]);;
+        NSLog(@"Error in didDisconnectBean: %@", [error localizedDescription]);;
     }
     
     [self.theConnectedBeans removeObjectForKey:bean.identifier];
