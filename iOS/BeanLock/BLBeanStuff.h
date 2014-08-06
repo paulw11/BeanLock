@@ -33,7 +33,6 @@
 @interface BLBeanStuff: NSObject <PTDBeanManagerDelegate>
 
 @property (weak,nonatomic) id delegate;
-@property (nonatomic,readonly) NSString *targetBean;
 @property (nonatomic,readonly) NSArray *connectedBeans;
 @property (nonatomic,readonly) NSArray *discoveredBeans;
 
