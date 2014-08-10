@@ -1,0 +1,542 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		29979E7B3E384DBF8ECA7793 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ED75C9C7DD31418EAC5E1F8C /* libPods.a */; };
+		BB223CB61996082B00C7CF28 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB223CB51996082B00C7CF28 /* Cocoa.framework */; };
+		BB223CC71996EC0100C7CF28 /* icon1024.acorn in Resources */ = {isa = PBXBuildFile; fileRef = BB223CB91996EC0100C7CF28 /* icon1024.acorn */; };
+		BB223CC81996EC0100C7CF28 /* icon1024.png in Resources */ = {isa = PBXBuildFile; fileRef = BB223CBA1996EC0100C7CF28 /* icon1024.png */; };
+		BB223CDA1996ECBC00C7CF28 /* icon16.png in Resources */ = {isa = PBXBuildFile; fileRef = BB223CD41996ECBC00C7CF28 /* icon16.png */; };
+		BB223CDB1996ECBC00C7CF28 /* icon32.png in Resources */ = {isa = PBXBuildFile; fileRef = BB223CD51996ECBC00C7CF28 /* icon32.png */; };
+		BB223CDC1996ECBC00C7CF28 /* icon64.png in Resources */ = {isa = PBXBuildFile; fileRef = BB223CD61996ECBC00C7CF28 /* icon64.png */; };
+		BB223CDD1996ECBC00C7CF28 /* icon128.png in Resources */ = {isa = PBXBuildFile; fileRef = BB223CD71996ECBC00C7CF28 /* icon128.png */; };
+		BB223CDE1996ECBC00C7CF28 /* icon256.png in Resources */ = {isa = PBXBuildFile; fileRef = BB223CD81996ECBC00C7CF28 /* icon256.png */; };
+		BB223CDF1996ECBC00C7CF28 /* icon512.png in Resources */ = {isa = PBXBuildFile; fileRef = BB223CD91996ECBC00C7CF28 /* icon512.png */; };
+		BB223CE8199704B200C7CF28 /* PreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB223CE6199704B200C7CF28 /* PreferencesViewController.m */; };
+		BB91BE3A1996035F007E4543 /* BLBeanStuff.m in Sources */ = {isa = PBXBuildFile; fileRef = BB91BE391996035F007E4543 /* BLBeanStuff.m */; };
+		BB91BE3C199604A3007E4543 /* IOBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB91BE3B199604A3007E4543 /* IOBluetooth.framework */; };
+		BB91BE3E1996067B007E4543 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB91BE3D1996067B007E4543 /* AppKit.framework */; };
+		BBA0F2311995EC1A006F35EF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BBA0F2301995EC1A006F35EF /* main.m */; };
+		BBA0F2341995EC1A006F35EF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BBA0F2331995EC1A006F35EF /* AppDelegate.m */; };
+		BBA0F2361995EC1A006F35EF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBA0F2351995EC1A006F35EF /* Images.xcassets */; };
+		BBA0F2391995EC1A006F35EF /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBA0F2371995EC1A006F35EF /* MainMenu.xib */; };
+		BBA0F2451995EC1A006F35EF /* BeanLockOSXTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BBA0F2441995EC1A006F35EF /* BeanLockOSXTests.m */; };
+		BBA0F2561995F415006F35EF /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBA0F2551995F415006F35EF /* MainViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BBA0F23F1995EC1A006F35EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BBA0F2231995EC1A006F35EF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BBA0F22A1995EC1A006F35EF;
+			remoteInfo = BeanLockOSX;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		04278901DD874D599287036B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		BB223CB51996082B00C7CF28 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		BB223CB91996EC0100C7CF28 /* icon1024.acorn */ = {isa = PBXFileReference; lastKnownFileType = file; path = icon1024.acorn; sourceTree = "<group>"; };
+		BB223CBA1996EC0100C7CF28 /* icon1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon1024.png; sourceTree = "<group>"; };
+		BB223CD41996ECBC00C7CF28 /* icon16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon16.png; sourceTree = "<group>"; };
+		BB223CD51996ECBC00C7CF28 /* icon32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon32.png; sourceTree = "<group>"; };
+		BB223CD61996ECBC00C7CF28 /* icon64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon64.png; sourceTree = "<group>"; };
+		BB223CD71996ECBC00C7CF28 /* icon128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon128.png; sourceTree = "<group>"; };
+		BB223CD81996ECBC00C7CF28 /* icon256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon256.png; sourceTree = "<group>"; };
+		BB223CD91996ECBC00C7CF28 /* icon512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon512.png; sourceTree = "<group>"; };
+		BB223CE5199704B200C7CF28 /* PreferencesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesViewController.h; sourceTree = "<group>"; };
+		BB223CE6199704B200C7CF28 /* PreferencesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesViewController.m; sourceTree = "<group>"; };
+		BB91BE381996035F007E4543 /* BLBeanStuff.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLBeanStuff.h; sourceTree = "<group>"; };
+		BB91BE391996035F007E4543 /* BLBeanStuff.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLBeanStuff.m; sourceTree = "<group>"; };
+		BB91BE3B199604A3007E4543 /* IOBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOBluetooth.framework; path = System/Library/Frameworks/IOBluetooth.framework; sourceTree = SDKROOT; };
+		BB91BE3D1996067B007E4543 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		BBA0F22B1995EC1A006F35EF /* BeanLockOSX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeanLockOSX.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBA0F22F1995EC1A006F35EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BBA0F2301995EC1A006F35EF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BBA0F2321995EC1A006F35EF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		BBA0F2331995EC1A006F35EF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		BBA0F2351995EC1A006F35EF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		BBA0F2381995EC1A006F35EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		BBA0F23E1995EC1A006F35EF /* BeanLockOSXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeanLockOSXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBA0F2431995EC1A006F35EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BBA0F2441995EC1A006F35EF /* BeanLockOSXTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BeanLockOSXTests.m; sourceTree = "<group>"; };
+		BBA0F2541995F415006F35EF /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		BBA0F2551995F415006F35EF /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		ED75C9C7DD31418EAC5E1F8C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BBA0F2281995EC1A006F35EF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB223CB61996082B00C7CF28 /* Cocoa.framework in Frameworks */,
+				BB91BE3E1996067B007E4543 /* AppKit.framework in Frameworks */,
+				BB91BE3C199604A3007E4543 /* IOBluetooth.framework in Frameworks */,
+				29979E7B3E384DBF8ECA7793 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBA0F23B1995EC1A006F35EF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		91FCB65F5BCA4BEB85C36BD5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BB223CB51996082B00C7CF28 /* Cocoa.framework */,
+				BB91BE3D1996067B007E4543 /* AppKit.framework */,
+				BB91BE3B199604A3007E4543 /* IOBluetooth.framework */,
+				ED75C9C7DD31418EAC5E1F8C /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BB223CB71996EC0100C7CF28 /* imagery */ = {
+			isa = PBXGroup;
+			children = (
+				BB223CD41996ECBC00C7CF28 /* icon16.png */,
+				BB223CD51996ECBC00C7CF28 /* icon32.png */,
+				BB223CD61996ECBC00C7CF28 /* icon64.png */,
+				BB223CD71996ECBC00C7CF28 /* icon128.png */,
+				BB223CD81996ECBC00C7CF28 /* icon256.png */,
+				BB223CD91996ECBC00C7CF28 /* icon512.png */,
+				BB223CB91996EC0100C7CF28 /* icon1024.acorn */,
+				BB223CBA1996EC0100C7CF28 /* icon1024.png */,
+			);
+			name = imagery;
+			path = BeanLockOSX/imagery;
+			sourceTree = "<group>";
+		};
+		BBA0F2221995EC1A006F35EF = {
+			isa = PBXGroup;
+			children = (
+				BB223CB71996EC0100C7CF28 /* imagery */,
+				BBA0F22D1995EC1A006F35EF /* BeanLockOSX */,
+				BBA0F2411995EC1A006F35EF /* BeanLockOSXTests */,
+				BBA0F22C1995EC1A006F35EF /* Products */,
+				04278901DD874D599287036B /* Pods.xcconfig */,
+				91FCB65F5BCA4BEB85C36BD5 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		BBA0F22C1995EC1A006F35EF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BBA0F22B1995EC1A006F35EF /* BeanLockOSX.app */,
+				BBA0F23E1995EC1A006F35EF /* BeanLockOSXTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BBA0F22D1995EC1A006F35EF /* BeanLockOSX */ = {
+			isa = PBXGroup;
+			children = (
+				BB91BE381996035F007E4543 /* BLBeanStuff.h */,
+				BB91BE391996035F007E4543 /* BLBeanStuff.m */,
+				BBA0F2321995EC1A006F35EF /* AppDelegate.h */,
+				BBA0F2331995EC1A006F35EF /* AppDelegate.m */,
+				BBA0F2351995EC1A006F35EF /* Images.xcassets */,
+				BBA0F2371995EC1A006F35EF /* MainMenu.xib */,
+				BBA0F22E1995EC1A006F35EF /* Supporting Files */,
+				BBA0F2541995F415006F35EF /* MainViewController.h */,
+				BBA0F2551995F415006F35EF /* MainViewController.m */,
+				BB223CE5199704B200C7CF28 /* PreferencesViewController.h */,
+				BB223CE6199704B200C7CF28 /* PreferencesViewController.m */,
+			);
+			path = BeanLockOSX;
+			sourceTree = "<group>";
+		};
+		BBA0F22E1995EC1A006F35EF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BBA0F22F1995EC1A006F35EF /* Info.plist */,
+				BBA0F2301995EC1A006F35EF /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BBA0F2411995EC1A006F35EF /* BeanLockOSXTests */ = {
+			isa = PBXGroup;
+			children = (
+				BBA0F2441995EC1A006F35EF /* BeanLockOSXTests.m */,
+				BBA0F2421995EC1A006F35EF /* Supporting Files */,
+			);
+			path = BeanLockOSXTests;
+			sourceTree = "<group>";
+		};
+		BBA0F2421995EC1A006F35EF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BBA0F2431995EC1A006F35EF /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BBA0F22A1995EC1A006F35EF /* BeanLockOSX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BBA0F2481995EC1A006F35EF /* Build configuration list for PBXNativeTarget "BeanLockOSX" */;
+			buildPhases = (
+				55A14FAFA52F4433A8F5C4D6 /* Check Pods Manifest.lock */,
+				BBA0F2271995EC1A006F35EF /* Sources */,
+				BBA0F2281995EC1A006F35EF /* Frameworks */,
+				BBA0F2291995EC1A006F35EF /* Resources */,
+				7F52E5F75B8A4EB399A4A7C0 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BeanLockOSX;
+			productName = BeanLockOSX;
+			productReference = BBA0F22B1995EC1A006F35EF /* BeanLockOSX.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BBA0F23D1995EC1A006F35EF /* BeanLockOSXTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BBA0F24B1995EC1A006F35EF /* Build configuration list for PBXNativeTarget "BeanLockOSXTests" */;
+			buildPhases = (
+				BBA0F23A1995EC1A006F35EF /* Sources */,
+				BBA0F23B1995EC1A006F35EF /* Frameworks */,
+				BBA0F23C1995EC1A006F35EF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BBA0F2401995EC1A006F35EF /* PBXTargetDependency */,
+			);
+			name = BeanLockOSXTests;
+			productName = BeanLockOSXTests;
+			productReference = BBA0F23E1995EC1A006F35EF /* BeanLockOSXTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BBA0F2231995EC1A006F35EF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = "Paul Wilkinson";
+				TargetAttributes = {
+					BBA0F22A1995EC1A006F35EF = {
+						CreatedOnToolsVersion = 6.0;
+					};
+					BBA0F23D1995EC1A006F35EF = {
+						CreatedOnToolsVersion = 6.0;
+						TestTargetID = BBA0F22A1995EC1A006F35EF;
+					};
+				};
+			};
+			buildConfigurationList = BBA0F2261995EC1A006F35EF /* Build configuration list for PBXProject "BeanLockOSX" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BBA0F2221995EC1A006F35EF;
+			productRefGroup = BBA0F22C1995EC1A006F35EF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BBA0F22A1995EC1A006F35EF /* BeanLockOSX */,
+				BBA0F23D1995EC1A006F35EF /* BeanLockOSXTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BBA0F2291995EC1A006F35EF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BBA0F2361995EC1A006F35EF /* Images.xcassets in Resources */,
+				BB223CDB1996ECBC00C7CF28 /* icon32.png in Resources */,
+				BB223CDD1996ECBC00C7CF28 /* icon128.png in Resources */,
+				BBA0F2391995EC1A006F35EF /* MainMenu.xib in Resources */,
+				BB223CC81996EC0100C7CF28 /* icon1024.png in Resources */,
+				BB223CDF1996ECBC00C7CF28 /* icon512.png in Resources */,
+				BB223CDE1996ECBC00C7CF28 /* icon256.png in Resources */,
+				BB223CC71996EC0100C7CF28 /* icon1024.acorn in Resources */,
+				BB223CDA1996ECBC00C7CF28 /* icon16.png in Resources */,
+				BB223CDC1996ECBC00C7CF28 /* icon64.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBA0F23C1995EC1A006F35EF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		55A14FAFA52F4433A8F5C4D6 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7F52E5F75B8A4EB399A4A7C0 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BBA0F2271995EC1A006F35EF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB91BE3A1996035F007E4543 /* BLBeanStuff.m in Sources */,
+				BBA0F2341995EC1A006F35EF /* AppDelegate.m in Sources */,
+				BB223CE8199704B200C7CF28 /* PreferencesViewController.m in Sources */,
+				BBA0F2561995F415006F35EF /* MainViewController.m in Sources */,
+				BBA0F2311995EC1A006F35EF /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBA0F23A1995EC1A006F35EF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BBA0F2451995EC1A006F35EF /* BeanLockOSXTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BBA0F2401995EC1A006F35EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BBA0F22A1995EC1A006F35EF /* BeanLockOSX */;
+			targetProxy = BBA0F23F1995EC1A006F35EF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BBA0F2371995EC1A006F35EF /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BBA0F2381995EC1A006F35EF /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BBA0F2461995EC1A006F35EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		BBA0F2471995EC1A006F35EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		BBA0F2491995EC1A006F35EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 04278901DD874D599287036B /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = BeanLockOSX/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BeanLockOSX/BeanLockOSX-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BBA0F24A1995EC1A006F35EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 04278901DD874D599287036B /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = BeanLockOSX/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BeanLockOSX/BeanLockOSX-Bridging-Header.h";
+			};
+			name = Release;
+		};
+		BBA0F24C1995EC1A006F35EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = BeanLockOSXTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BeanLockOSX.app/Contents/MacOS/BeanLockOSX";
+			};
+			name = Debug;
+		};
+		BBA0F24D1995EC1A006F35EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = BeanLockOSXTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BeanLockOSX.app/Contents/MacOS/BeanLockOSX";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BBA0F2261995EC1A006F35EF /* Build configuration list for PBXProject "BeanLockOSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BBA0F2461995EC1A006F35EF /* Debug */,
+				BBA0F2471995EC1A006F35EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BBA0F2481995EC1A006F35EF /* Build configuration list for PBXNativeTarget "BeanLockOSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BBA0F2491995EC1A006F35EF /* Debug */,
+				BBA0F24A1995EC1A006F35EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BBA0F24B1995EC1A006F35EF /* Build configuration list for PBXNativeTarget "BeanLockOSXTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BBA0F24C1995EC1A006F35EF /* Debug */,
+				BBA0F24D1995EC1A006F35EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BBA0F2231995EC1A006F35EF /* Project object */;
+}
