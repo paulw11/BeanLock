@@ -9,6 +9,6 @@
 #import <Cocoa/Cocoa.h>
 #import "BLBeanStuff.h"
 
-@interface PreferencesViewController : NSViewController <NSTableViewDataSource,NSTableViewDelegate,BLBeanStuffDelegate>
+@interface PreferencesViewController : NSViewController <NSTableViewDataSource,NSTableViewDelegate>
 
 @end
