@@ -38,7 +38,7 @@
     self.batteryIndicator.doubleValue=0.0;
     
     self.myBeanStuff=[BLBeanStuff sharedBeanStuff];
-    
+    self.myBeanStuff.delegate=self;
     [self processSettings];
     self.openButton.enabled=NO;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(defaultsChanged:) name:NSUserDefaultsDidChangeNotification object:nil];
