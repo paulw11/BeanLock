@@ -39,6 +39,7 @@
 @property (nonatomic,strong) PTDBean *connectedBean;
 
 @property (nonatomic,weak) IBOutlet UIButton *openButton;
+@property (nonatomic,weak) IBOutlet UIButton *openButton2;
 @property (nonatomic,weak) IBOutlet UILabel *temperatureLabel;
 @property (nonatomic,weak) IBOutlet UILabel *batteryLabel;
 @property (nonatomic,weak) IBOutlet UIProgressView *batteryProgressView;
@@ -61,7 +62,7 @@
     [super viewWillAppear:animated];
     self.myBeanStuff.delegate=self;
     [self processSettings];
-    self.openButton.enabled=(self.connectedBean != nil);
+    self.openButton2.enabled = self.openButton.enabled=(self.connectedBean != nil);
 }
 
 - (void)didReceiveMemoryWarning
@@ -73,7 +74,7 @@
 -(void) unlockNotificationReceived {
     BOOL autoUnlock = [[NSUserDefaults standardUserDefaults] boolForKey:kBLAutoUnlockPref];
     if (autoUnlock ) {
-        [self unlock];
+        [self unlock:1];
     }
 }
 
@@ -82,13 +83,13 @@
 
 -(IBAction)openPressed:(UIButton *)sender {
     if (self.connectedBean!=nil) {
-        [self unlock];
+        [self unlock:sender.tag];
     }
 }
-         
--(void) unlock {
+
+-(void) unlock:(NSInteger) lock {
     NSString *password=[[NSUserDefaults standardUserDefaults] objectForKey:kBLPasswordPref];
-    NSString *openCommand=[NSString stringWithFormat:@"\002%@\003",password];
+    NSString *openCommand=[NSString stringWithFormat:@"\002%1ld%@\003",(long)lock,password];
     [self.connectedBean sendSerialData:[openCommand dataUsingEncoding:NSASCIIStringEncoding]];
     [self.connectedBean readTemperature];
 }
@@ -183,6 +184,7 @@
     bean.delegate=self;
     self.connectedBean=bean;
     self.openButton.enabled=YES;
+    self.openButton2.enabled=YES;
     [self.myBeanStuff stopScanningForBeans];
     [bean readTemperature];
     if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateBackground) {
@@ -196,8 +198,10 @@
 
 -(void) didDisconnectFromBean:(PTDBean *)bean {
     self.messageLabel.text=@"Disconnected";
+    [self.myBeanStuff disconnectFromBean:bean];
     self.connectedBean=nil;
     self.openButton.enabled=NO;
+    self.openButton2.enabled=NO;
     if (self.targetBean != nil) {
         [self connect];
     }

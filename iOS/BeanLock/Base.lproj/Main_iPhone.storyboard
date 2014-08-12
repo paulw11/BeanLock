@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="rQl-PL-IFJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="rQl-PL-IFJ">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BDC-Yc-DlD">
-                                <rect key="frame" x="122" y="483" width="76" height="40"/>
+                                <rect key="frame" x="74" y="483" width="76" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.41176470590000003" green="0.74509803919999995" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -26,7 +26,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Open">
+                                <state key="normal" title="Open 1">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 </state>
                                 <state key="disabled">
@@ -34,6 +34,26 @@
                                 </state>
                                 <connections>
                                     <action selector="openPressed:" destination="rQl-PL-IFJ" eventType="touchUpInside" id="EmN-MT-qHg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L4t-VR-VG0">
+                                <rect key="frame" x="166" y="483" width="76" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.41176470590000003" green="0.74509803919999995" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="NBP-xp-goU"/>
+                                    <constraint firstAttribute="width" constant="76" id="x4u-50-h93"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Open 2">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="disabled">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="openPressed:" destination="rQl-PL-IFJ" eventType="touchUpInside" id="W63-b6-3K1"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f3E-Ek-yaT">
@@ -111,10 +131,11 @@
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="BDC-Yc-DlD" secondAttribute="centerX" id="0DL-zE-6cf"/>
+                            <constraint firstAttribute="centerX" secondItem="BDC-Yc-DlD" secondAttribute="centerX" constant="48" id="0DL-zE-6cf"/>
                             <constraint firstItem="0Ug-GO-Kbc" firstAttribute="top" secondItem="f3E-Ek-yaT" secondAttribute="bottom" constant="20" symbolic="YES" id="1IC-97-l94"/>
                             <constraint firstItem="N1H-L3-dPn" firstAttribute="top" secondItem="R86-Su-GR9" secondAttribute="bottom" id="1kH-fV-njk"/>
                             <constraint firstItem="29o-dv-qOW" firstAttribute="top" secondItem="N1H-L3-dPn" secondAttribute="bottom" constant="16" id="2xC-XL-OZp"/>
+                            <constraint firstItem="L4t-VR-VG0" firstAttribute="leading" secondItem="BDC-Yc-DlD" secondAttribute="trailing" constant="16" id="54U-Gk-sjq"/>
                             <constraint firstAttribute="trailing" secondItem="q4H-50-ba0" secondAttribute="trailing" constant="20" symbolic="YES" id="64L-3K-YkX"/>
                             <constraint firstAttribute="centerX" secondItem="f3E-Ek-yaT" secondAttribute="centerX" id="7fw-Zz-HbI"/>
                             <constraint firstAttribute="trailing" secondItem="29o-dv-qOW" secondAttribute="trailing" constant="20" symbolic="YES" id="8OC-Ii-6VU"/>
@@ -132,6 +153,7 @@
                             <constraint firstItem="q4H-50-ba0" firstAttribute="leading" secondItem="Jfj-pN-wtk" secondAttribute="trailing" constant="8" symbolic="YES" id="aRb-E8-XPf"/>
                             <constraint firstItem="f3E-Ek-yaT" firstAttribute="top" secondItem="BDC-Yc-DlD" secondAttribute="bottom" constant="8" symbolic="YES" id="alg-AW-LOb"/>
                             <constraint firstAttribute="trailing" secondItem="Yo8-UI-kgT" secondAttribute="trailing" constant="20" symbolic="YES" id="axi-y2-ZF3"/>
+                            <constraint firstItem="L4t-VR-VG0" firstAttribute="top" secondItem="BDC-Yc-DlD" secondAttribute="top" id="eDj-xx-WNB"/>
                             <constraint firstItem="Jfj-pN-wtk" firstAttribute="leading" secondItem="2pv-IR-dMp" secondAttribute="leading" constant="20" symbolic="YES" id="fbf-Ct-7CW"/>
                             <constraint firstItem="vzu-eS-Me9" firstAttribute="top" secondItem="q4H-50-ba0" secondAttribute="bottom" constant="8" symbolic="YES" id="vHo-jb-9RQ"/>
                             <constraint firstAttribute="trailing" secondItem="N1H-L3-dPn" secondAttribute="trailing" constant="20" symbolic="YES" id="z4T-aY-vp7"/>
@@ -142,6 +164,7 @@
                         <outlet property="batteryProgressView" destination="Jfj-pN-wtk" id="pm0-rD-2OE"/>
                         <outlet property="messageLabel" destination="vzu-eS-Me9" id="hlA-7C-njm"/>
                         <outlet property="openButton" destination="BDC-Yc-DlD" id="CMb-xY-fTQ"/>
+                        <outlet property="openButton2" destination="L4t-VR-VG0" id="EHA-Wx-kMs"/>
                         <outlet property="statusLabel" destination="N1H-L3-dPn" id="8Ke-P5-yRE"/>
                         <outlet property="temperatureLabel" destination="vKe-5o-Bfs" id="xs0-kH-vjN"/>
                     </connections>

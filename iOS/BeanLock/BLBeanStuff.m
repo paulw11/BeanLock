@@ -144,7 +144,7 @@
         return;
     }
     else {
-        NSLog(@"Discovered Bean %@ (%@)",bean.name,bean.identifier);
+        NSLog(@"Discovered Bean %@ (%@) RSSI=%ld",bean.name,bean.identifier,[bean.RSSI integerValue]);
         [self.discoveredBeansDict setObject:bean forKey:bean.identifier];
         if (self.delegate != nil && [self.delegate respondsToSelector:@selector(didUpdateDiscoveredBeans:withBean:)]) {
             [self.delegate didUpdateDiscoveredBeans:[self discoveredBeans] withBean:bean];
