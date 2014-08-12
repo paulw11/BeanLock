@@ -31,6 +31,7 @@ int ledTimeout=0;
 int LEDTIME=10;    // LED time is 5 seconds (sleep for 500ms every loop)
 int state=0;
 String collectedPassword;
+int selectedLock;
 String thePassword="OpenSesame";
 
 // the setup routine runs once when you press reset:
@@ -42,7 +43,9 @@ void setup() {
   Serial.setTimeout(25);
   //Set pin 0 to Output mode
   pinMode(0,OUTPUT);
-  closeLock();
+  pinMode(1,OUTPUT);
+  closeLock(0);
+  closeLock(1);
   
 }
 
@@ -84,6 +87,24 @@ void processBytes(char buffer[], size_t length) {
       case 1:
           if (b==2) {
             state=1;
+          }
+          else if (b=='0') {
+            selectedLock=0;
+            state=2;
+          }
+          else if (b=='1') {
+            selectedLock=1;
+            state=2;
+          }
+          else {
+            error();
+            state=0;
+          }
+          break;
+          
+      case 2:
+          if (b==2) {
+            state=1;
             collectedPassword="";
             error();
           } else if (b==3) {
@@ -93,15 +114,15 @@ void processBytes(char buffer[], size_t length) {
           else {
             collectedPassword=collectedPassword+String(b);
             if (collectedPassword.length() == thePassword.length()) {
-              state=2;
+              state=3;
             }
           }
           break;
-      case 2:
+      case 3:
            if (b==3) {
               if (collectedPassword == thePassword) {
                  ok();  
-                 pulseLock(10); 
+                 pulseLock(selectedLock,2); 
                  closed();
                  state=0;    
               }
@@ -147,26 +168,26 @@ void denied() {
 
 // Pulse the lock open for a specified time
 
-void pulseLock(int time) {
- openLock();
+void pulseLock(int lock,int time) {
+ openLock(lock);
  delay(time*1000 );  
- closeLock();
+ closeLock(lock);
 }
 
 
 // Open the lock
 // The relay board has an active-low input
 
-void openLock() {
-  digitalWrite(0,LOW);
+void openLock(int lock) {
+  digitalWrite(lock,LOW);
   Bean.setLed(0,255,0);
   ledTimeout=LEDTIME;
 }
 
 
 // Close the lock
-void closeLock() {
-  digitalWrite(0,HIGH);
+void closeLock(int lock) {
+  digitalWrite(lock,HIGH);
   Bean.setLed(255,0,0);
   ledTimeout=LEDTIME;
 }
