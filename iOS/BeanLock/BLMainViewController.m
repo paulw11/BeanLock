@@ -192,7 +192,7 @@
         if (!alreadyNotified) {
             UILocalNotification* localNotification = [[UILocalNotification alloc] init];
             localNotification.fireDate = [NSDate new];
-            localNotification.alertBody = @"I see a lock";
+            localNotification.alertBody = @"Lock detected";
             localNotification.timeZone = [NSTimeZone defaultTimeZone];
             [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
             [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"notified"];
