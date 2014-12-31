@@ -13,7 +13,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-        
+    
+    if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]){
+        [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert categories:nil]];
+    }
+    
     [self postUnlockNotification];
     
     return YES;
@@ -45,7 +49,7 @@
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     
-    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"notified"];
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:kBLNotificationSent];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
