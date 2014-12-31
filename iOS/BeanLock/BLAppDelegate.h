@@ -13,6 +13,7 @@
 #define kBLPasswordPref @"password"
 #define kBLAutoUnlockPref @"autoUnlock"
 #define kBLUnlockNotification @"kBLUnlockNotification"
+#define kBLNotificationSent @"notified"
 
 @interface BLAppDelegate : UIResponder <UIApplicationDelegate>
 
