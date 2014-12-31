@@ -188,7 +188,7 @@
     [self.myBeanStuff stopScanningForBeans];
     [bean readTemperature];
     if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateBackground) {
-        BOOL alreadyNotified=[[NSUserDefaults standardUserDefaults] boolForKey:@"notified"];
+        BOOL alreadyNotified=[[NSUserDefaults standardUserDefaults] boolForKey:kBLNotificationSent];
         if (!alreadyNotified) {
             UILocalNotification* localNotification = [[UILocalNotification alloc] init];
             localNotification.fireDate = [NSDate new];
